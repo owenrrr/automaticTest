@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Analy:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Analy_jar</output-path>
+    <root id="archive" name="Analy.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="Analy" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/ibm/wala/com.ibm.wala.cast/1.5.4/com.ibm.wala.cast-1.5.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/ibm/wala/com.ibm.wala.core/1.5.4/com.ibm.wala.core-1.5.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-io/commons-io/2.4/commons-io-2.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/ibm/wala/com.ibm.wala.shrike/1.5.4/com.ibm.wala.shrike-1.5.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/ibm/wala/com.ibm.wala.util/1.5.4/com.ibm.wala.util-1.5.4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
