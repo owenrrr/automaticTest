@@ -28,7 +28,7 @@ public class Analy {
             String command = args[0];
             String target = args[1];
             String changeInfo = args[2];
-//            String command = "-m";
+//            String command = "-c";
 //            String target = "C:\\automaticTest\\target";
 //            String changeInfo = "C:\\automaticTest\\data\\change_info.txt";
 
