@@ -9,6 +9,7 @@ import com.ibm.wala.ipa.callgraph.impl.AllApplicationEntrypoints;
 import com.ibm.wala.ipa.cha.ClassHierarchy;
 import com.ibm.wala.ipa.cha.ClassHierarchyFactory;
 import com.ibm.wala.types.ClassLoaderReference;
+import com.ibm.wala.util.collections.Iterator2Iterable;
 import com.ibm.wala.util.config.AnalysisScopeReader;
 
 import java.io.*;
@@ -27,6 +28,9 @@ public class Analy {
             String command = args[0];
             String target = args[1];
             String changeInfo = args[2];
+//            String command = "-m";
+//            String target = "C:\\automaticTest\\target";
+//            String changeInfo = "C:\\automaticTest\\data\\change_info.txt";
 
             if (!command.equals("-c") && !command.equals("-m")){
                 System.out.println("Command not found.");
@@ -59,7 +63,9 @@ public class Analy {
             }
             int count;
             // 读取class-cfa.dot
-            BufferedReader classReader = new BufferedReader(new FileReader(target.substring(0,target.length()-7) + "\\data\\class-cfa.dot"));
+//            BufferedReader classReader = new BufferedReader(new FileReader(target.substring(0,target.length()-7) + "\\data\\class-cfa.dot"));
+            BufferedReader classReader = new BufferedReader(new FileReader("class-cfa.dot"));
+
             HashSet<String> tmpSet = new HashSet<>();
             do {
                 count = 0;
@@ -85,9 +91,9 @@ public class Analy {
             }while (count != 0);
 
             // 读取method-cfa.dot
-            BufferedReader methodReader = new BufferedReader(new FileReader(target.substring(0,target.length()-7) + "\\data\\method-cfa.dot"));
+            BufferedReader methodReader = new BufferedReader(new FileReader("method-cfa.dot"));
             // 写selection-class.txt
-            FileWriter writer = new FileWriter(new File(target.substring(0,target.length()-7) + "\\data\\selection-class.txt"));
+            FileWriter writer = new FileWriter(new File("selection-class.txt"));
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
 
             HashSet<String> resultSet = new HashSet<>();
@@ -155,7 +161,7 @@ public class Analy {
             BufferedReader reader;
 
             // 写select-class-test.txt
-            FileWriter writer = new FileWriter(new File(target.substring(0,target.length()-7) + "\\data\\selection-method.txt"));
+            FileWriter writer = new FileWriter(new File("selection-method.txt"));
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
             HashSet<String> tmpSet = new HashSet<>();
             String next;
@@ -164,7 +170,7 @@ public class Analy {
             do {
                 counter = 0;
                 tmpSet = new HashSet<>();
-                reader = new BufferedReader(new FileReader(target.substring(0,target.length()-7) + "\\data\\method-cfa.dot"));
+                reader = new BufferedReader(new FileReader("method-cfa.dot"));
                 while ((line = reader.readLine()) != null) {
                     if (line.equals("digraph method {") || line.equals("}")){
                         continue;
@@ -254,7 +260,8 @@ public class Analy {
         cg.init(eps);
         System.out.println("---CHACallGraph Completed---");
 
-        File file = new File(target.substring(0,target.length()-7) + "\\data\\method-cfa.dot");
+//        File file = new File(target.substring(0,target.length()-7) + "\\data\\method-cfa.dot");
+        File file = new File("method-cfa.dot");
         file.createNewFile();
         FileWriter writer = new FileWriter(file);
         BufferedWriter bufferedWriter = new BufferedWriter(writer);
@@ -296,7 +303,7 @@ public class Analy {
         HashSet<String> set = new HashSet<>();  //hashset不会重复
         String[] tmp;
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(target.substring(0,target.length()-7) + "\\data\\method-cfa.dot"));
+            BufferedReader reader = new BufferedReader(new FileReader("method-cfa.dot"));
             while ((line = reader.readLine()) != null) {
                 if (line.equals("digraph method {") || line.equals("}")){
                     continue;
@@ -331,7 +338,7 @@ public class Analy {
         }
 
         try{
-            FileWriter writer = new FileWriter(new File(target.substring(0,target.length()-7) + "\\data\\class-cfa.dot"));
+            FileWriter writer = new FileWriter(new File("class-cfa.dot"));
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
             bufferedWriter.write("digraph class {\r\n");
             Iterator iterator;
