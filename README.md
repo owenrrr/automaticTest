@@ -12,12 +12,12 @@
 - isNetMooctest(String class)
 - readChangeInfo(String path)
 ```
-> createMethodDotFile(String target) **创建method-cfa.dot**
-> createClassDotFile() **创建class-cfa.dot**
-> createSelectMethod(String path) **创建selection-method.txt**
-> createSelectClass(String path) **创建selection-class.txt**
-> isNetMooctest(String class) **判断是否在net.mooctest包下**
-> readChangeInfo(String path) **读取change_info.txt，并返回Map<String, HashSet>**
+>createMethodDotFile(String target) **创建method-cfa.dot**
+>createClassDotFile() **创建class-cfa.dot**
+>createSelectMethod(String path) **创建selection-method.txt**
+>createSelectClass(String path) **创建selection-class.txt**
+>isNetMooctest(String class) **判断是否在net.mooctest包下**
+>readChangeInfo(String path) **读取change_info.txt，并返回Map<String, HashSet>**
 
 **由于程序运行过程容易出错，故在程序中添加断言assert，如：**
 ```
